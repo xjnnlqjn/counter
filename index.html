@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>计数器</title>
+  <link rel="stylesheet" href="css/index.css">
+</head>
+<body>
+<div id="app">
+  <div class="input">
+    <button v-on:click="add">+</button>
+    <span>{{ counter }}</span>
+    <button v-on:click="sub">-</button>
+    </div>
+    <h4>Tip：最小数值为0，最大数值为10</h4>
+  </div>
+</body>
+<script src='js/vue.js'></script>
+<script>
+  const app = new Vue({
+    el:"#app",
+    data:{
+      counter: 0,
+      min: 0,
+      max: 10
+    },
+    methods:{
+      add:function(){
+        if(this.counter<this.max){
+          this.counter++;
+        }else {
+          alert('别点了，最大啦！')
+        }
+      },
+      sub:function(){
+        if(this.counter>this.min){
+          this.counter--;
+        }else {
+          alert('别点了，最小啦！')
+        }
+      }
+    }
+  })
+</script>
+</html>
